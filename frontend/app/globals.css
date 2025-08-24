@@ -1,0 +1,357 @@
+/* Contenedor del filtro */
+.filter-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 13px;
+  gap: 12px; 
+}
+
+/* Label */
+.filter-label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #374151;
+}
+
+/* Inputs de edición dentro de la tabla */
+.input-filter {
+  padding: 6px 6px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.2s ease;
+  font-family: "Nunito", "Segoe UI", Roboto, Arial, sans-serif;
+  width: 100%;
+  width: 180px;     
+  max-width: 200px;  
+  min-width: 140px;
+}
+
+.input-filter:focus {
+  border-color:  #063946; /* azul */
+  box-shadow: 0 0 0 1px  #063946;
+}
+
+
+
+body {
+  margin: 0;
+  font-family: "Nunito", "Segoe UI", Roboto, Arial, sans-serif;
+  background: white; /* gris clarito */
+}
+
+/* Fondo general */
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top:33px;
+}
+
+/* Caja blanca centrada */
+.container-box {
+  background: #fff;
+  border-radius: 15px;
+  padding: 30px;
+  width: 100%;
+  max-width: 1000px;
+  box-shadow: 8px 8px 8px #0001;
+  border: 1px solid #d1d5db;
+}
+
+/* Encabezado */
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.main-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 0;
+  color: #374151;
+}
+
+/* Botón agregar */
+.add-btn {
+  background: #084c61;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.2s;
+}
+
+.add-btn:hover {
+  background: #063946;
+}
+
+/* Tabla */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  padding: 12px;
+  background:#f4f5f6;
+  color: #374151;
+  font-weight: 610;
+  font-size: 1rem;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #dfe0e3;
+  font-size: 0.9rem;
+}
+
+tr:hover {
+  background: #f4f5f6;
+}
+
+/*botones de acciones*/
+
+.btn-editar,
+.btn-eliminar {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 20px;
+  margin: 0 4px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.btn-editar {
+  color:  #063946;
+  font-size: 30px; 
+}
+
+.btn-eliminar {
+  color: #dc2626; 
+  font-size: 30px;
+}
+
+.btn-editar:hover {
+  transform: scale(1.2);
+  color:  #063946;
+}
+
+.btn-eliminar:hover {
+  transform: scale(1.2);
+  color: #b91c1c;
+}
+
+/* Inputs de edición dentro de la tabla */
+.input-edit {
+  padding: 6px 6px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.2s ease;
+  font-family: "Nunito", "Segoe UI", Roboto, Arial, sans-serif;
+  width: 100%;
+}
+
+.input-edit:focus {
+  border-color:  #063946; /* azul */
+  box-shadow: 0 0 0 1px  #063946;
+}
+
+/* Botones en modo edición */
+.btn-guardar,
+.btn-cancelar {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 20px;
+  margin: 0 4px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.btn-guardar {
+  color: #16a34a;
+  font-size: 30px; 
+}
+
+.btn-cancelar {
+  color: #dc2626; 
+  font-size: 30px;
+}
+
+.btn-guardar:hover {
+  transform: scale(1.2);
+  color: #15803d;
+}
+
+.btn-cancelar:hover {
+  transform: scale(1.2);
+  color: #b91c1c;
+}
+
+/* Modal emergente agregar marca */
+.modal-bg {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s;
+}
+.modal-content {
+  background: #fff;
+  border-radius: 18px;
+  padding: 36px 32px 28px 32px;
+  min-width: 400px;
+  max-width: 400vw;
+  box-shadow: 0 8px 32px #0002;
+  position: relative;
+  animation: popIn 0.22s cubic-bezier(.4,1.4,.6,1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.modal-title {
+  margin: 0 0 18px 0;
+  color: #063946;;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.5px;
+}
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: none;
+  border: 0;
+  font-size: 22px;
+  cursor: pointer;
+  color: #dc2626;
+  transition: color 0.2s;
+}
+.modal-close:hover {
+  color: #b91c1c;
+}
+
+.form-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.form-modal button.add-btn {
+  margin-top: 8px;
+  width: fit-content;
+  min-width: 50px;
+  align-self: flex-start;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 10px 10;
+  border-radius: 15px;
+  background: #063946;
+  color: #fff;
+  box-shadow: 0 2px 8px #063946;;
+}
+
+.form-modal button.add-btn:hover {
+  background: #063946;;
+}
+
+/* Header principal */
+.creative-header {
+  display: flex;
+  padding: 0px 0px 0px 0px;   
+  background:#063946;
+  justify-content: flex-start;
+  position: sticky;
+  box-shadow: 0 1px 6px #0001;
+  min-height: 90px     
+}
+
+/* Grupo de títulos */
+.header-title-group {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;    
+}
+
+/* Título */
+.creative-title {
+  font-size: 1.9rem;   
+  font-weight: 700;
+  margin: 10px 0px 0px 180px;
+  color: #c7c7c9;
+  letter-spacing: 0.5px;
+}
+
+/* Subtítulo */
+.creative-sub {
+  font-size: 1rem;  
+  color: white;
+  margin: 0px 0px 0px 180px;
+  font-weight: 500;
+}
+
+/* Contenedor de la paginación */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  gap: 16px;           
+  margin-top: 18px;    
+}
+
+/* Texto de paginación */
+.pagination-info {
+  align-self: center; 
+  color: #374151;     
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.btn-pag {
+  background:white; 
+  color:  #374151;
+  border: none;
+  border-radius: 15px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0px 5px 2px #0001;
+  border: 1px solid #d1d5db;
+}
+.btn-pag:hover {
+  background: #f4f5f6; 
+}
+.btn-pag:disabled {
+  background: #e5e9ed; 
+  color: #9ca3af;      
+  cursor: not-allowed;
+  box-shadow: none;
+  border: 1px solid #d1d5db;
+}
+
+
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes popIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
