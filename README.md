@@ -2,7 +2,7 @@
 
 ## Descripción General
 
-Este proyecto es una solución completa para la gestión de marcas, desarrollada con Django (backend, API REST) y Next.js/React (frontend moderno). Permite crear, listar, editar, eliminar y filtrar marcas de manera visual, profesional y responsiva. El código está cuidadosamente documentado y estructurado para facilitar su mantenimiento y escalabilidad.
+Este proyecto es un CRUD completo para la gestión de marcas, desarrollada con Django (backend, API REST) y Next.js/React (frontend moderno). Permite crear, listar, editar, eliminar y filtrar marcas de manera visual, profesional y responsiva. El código está cuidadosamente documentado y estructurado para facilitar su mantenimiento y escalabilidad.
 
 ---
 
@@ -11,9 +11,9 @@ Este proyecto es una solución completa para la gestión de marcas, desarrollada
 - **Interfaz moderna y responsiva**: Inspirada en buenas prácticas de UX/UI.
 - **CRUD completo**: Crear, leer, actualizar y eliminar marcas.
 - **Filtro por estado**: Visualiza marcas activas, inactivas o pendientes.
-- **Paginación**: Navega fácilmente entre páginas de resultados.
+- **Paginación**: Navega fácilmente entre páginas de resultados de marcas.
 - **Modal para agregar**: Formulario emergente para una experiencia fluida.
-- **Código documentado**: Cada componente y endpoint tiene comentarios explicativos.
+- **Código documentado**: Se realizo comentarios en cada archivo utulizado.
 - **Separación de estilos**: CSS global y por componente para fácil mantenimiento.
 - **Backend robusto**: API RESTful con Django y Django REST Framework.
 - **CORS habilitado**: Permite comunicación segura entre frontend y backend.
@@ -26,15 +26,18 @@ Este proyecto es una solución completa para la gestión de marcas, desarrollada
 CRUD-GestionMarca/
 ├── Backend/
 │   ├── brandapi/           # Configuración principal Django
-│   └── brands/             # App de marcas (modelos, views, serializers, urls)
+│   ├── brands/             # App de marcas (modelos, views, serializers, urls)
+│   ├── venv/               # Entorno virtual de Python para dependencias del backend
+│   ├── db.sqlite3          # Base de datos SQLite generada automáticamente por Django
+│   └── manage.py           # Script principal para comandos de administración de Django
 ├── frontend/
 │   ├── app/
-│   │   ├── components/     # Componentes React (tabla, formulario, header, etc)
+│   │   ├── components/     # Componentes React (tabla, formulario, header)
 │   │   ├── css/            # Estilos por componente
 │   │   ├── globals.css     # Estilos globales
 │   │   └── page.jsx        # Página principal
 │   └── package.json        # Dependencias frontend
-└── README.md
+└── README.md               # Documentacion del Proyecto
 ```
 
 ---
@@ -43,7 +46,7 @@ CRUD-GestionMarca/
 
 - **Frontend:** Next.js, React, React Icons, CSS Modules/Global
 - **Backend:** Django, Django REST Framework, django-cors-headers
-- **Herramientas:** ESLint, Vercel/Netlify (opcional para despliegue)
+- **Herramientas:** ESLint.
 
 ---
 
@@ -84,28 +87,34 @@ El frontend estará en http://localhost:3000
 
 ## Endpoints del CRUD
 
+Estos endpoints son generados automáticamente por Django REST Framework a partir del `BrandViewSet` y el router en `Backend/brands/urls.py`:
+
 - `GET /views/brands/` — Listar todas las marcas
 - `POST /views/brands/` — Crear una nueva marca
 - `GET /views/brands/{id}/` — Obtener detalle de una marca
 - `PUT /views/brands/{id}/` — Actualizar una marca existente
 - `DELETE /views/brands/{id}/` — Eliminar una marca
 
+Estos endpoints permiten realizar todas las operaciones CRUD sobre el modelo Brand de forma sencilla y segura.
+
 ---
 
 ## Componentes principales (frontend)
 
-- **page.jsx**: Página principal, integra header, tabla y modal.
-- **components/header.jsx**: Header creativo y fijo.
-- **components/list.jsx**: Tabla de marcas con paginación, edición, eliminación y filtro.
-- **components/add.jsx**: Formulario para agregar marcas (modal).
+- **app/page.jsx**: Página principal.
+- **components/header.jsx**: Header fijo.
+- **components/list.jsx**: Tabla de la lista de marcas con paginación, edición, eliminación y filtro.
+- **components/add.jsx**: Formulario para agregar marcas a la base.
 - **components/StatusBadge.jsx**: Muestra el estado de cada marca con color.
+- **app/globals.css**: Estilos principales 
+- **app/css**: Carpeta con estilos del header y algunos componentes.
 
 ## Backend principal
 
-- **models.py**: Modelo Brand (id, name, owner, status, created_at, updated_at)
-- **serializers.py**: Serializador BrandSerializer
-- **views.py**: BrandViewSet (CRUD)
-- **urls.py**: Rutas API REST
+- **brands/models.py**: Modelo Brand (id, name, owner, status, created_at, updated_at)
+- **brands/serializers.py**: Serializador BrandSerializer
+- **brands/views.py**: BrandViewSet (CRUD)
+- **brands/urls.py**: Rutas API REST
 
 ---
 
@@ -123,12 +132,11 @@ El frontend estará en http://localhost:3000
 
 - Código limpio, modular y fácil de mantener.
 - Separación clara entre frontend y backend.
-- Documentación en cada archivo clave.
-- Listo para producción y fácil de desplegar.
-- UI amigable y profesional.
+- Documentación  de codigo en cada archivo clave.
+- UI amigable con el usuario
 
 ---
 
-## Créditos y contacto
+## Créditos 
 
 Desarrollado por Yeraldi Rico Cifuentes.
