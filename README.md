@@ -1,89 +1,134 @@
 # BrandTrack - CRUD de Gestión de Marcas
 
-BrandTrack es una aplicación **CRUD (Create, Read, Update, Delete)** desarrollada con **Next.js (frontend)** y **Django REST Framework (backend)** que que le permita al usuario ejecutar un CRUD básico para Registros de Marca.
-  
+## Descripción General
 
-## Características
+Este proyecto es una solución completa para la gestión de marcas, desarrollada con Django (backend, API REST) y Next.js/React (frontend moderno). Permite crear, listar, editar, eliminar y filtrar marcas de manera visual, profesional y responsiva. El código está cuidadosamente documentado y estructurado para facilitar su mantenimiento y escalabilidad.
 
-- Crear nuevas marcas  
-- Muestra la Lista de todas las marcas registradas  
-- Permite editar la información de la marca.
-- Eliminar marcas  
-- Filtrar por los estados de la marca (Activa, Inactiva, Pendiente)  
-- Cumple con una nterfaz amigable con el usuario  
+---
+
+## Características principales
+
+- **Interfaz moderna y responsiva**: Inspirada en buenas prácticas de UX/UI.
+- **CRUD completo**: Crear, leer, actualizar y eliminar marcas.
+- **Filtro por estado**: Visualiza marcas activas, inactivas o pendientes.
+- **Paginación**: Navega fácilmente entre páginas de resultados.
+- **Modal para agregar**: Formulario emergente para una experiencia fluida.
+- **Código documentado**: Cada componente y endpoint tiene comentarios explicativos.
+- **Separación de estilos**: CSS global y por componente para fácil mantenimiento.
+- **Backend robusto**: API RESTful con Django y Django REST Framework.
+- **CORS habilitado**: Permite comunicación segura entre frontend y backend.
+
+---
+
+## Estructura del Proyecto
+
+```
+CRUD-GestionMarca/
+├── Backend/
+│   ├── brandapi/           # Configuración principal Django
+│   └── brands/             # App de marcas (modelos, views, serializers, urls)
+├── frontend/
+│   ├── app/
+│   │   ├── components/     # Componentes React (tabla, formulario, header, etc)
+│   │   ├── css/            # Estilos por componente
+│   │   ├── globals.css     # Estilos globales
+│   │   └── page.jsx        # Página principal
+│   └── package.json        # Dependencias frontend
+└── README.md
+```
 
 ---
 
 ## Tecnologías utilizadas
 
-### Frontend
-- [Next.js 15](https://nextjs.org/)
-- CSS con estilos personalizados
-- [React Icons](https://react-icons.github.io/react-icons/)
-
-### Backend
-- [Django](https://www.djangoproject.com/)
-- [Django REST Framework](https://www.django-rest-framework.org/)
-- SQLite
+- **Frontend:** Next.js, React, React Icons, CSS Modules/Global
+- **Backend:** Django, Django REST Framework, django-cors-headers
+- **Herramientas:** ESLint, Vercel/Netlify (opcional para despliegue)
 
 ---
 
-## Estructura del proyecto
+## Instalación y ejecución
 
+### 1. Clonar el repositorio
 
----
+```bash
+git clone https://github.com/AsunaYero/CRUD-GestionMarca.git
+cd CRUD-GestionMarca
+```
 
-## Como se instala y se ejecuta el proyecto
+### 2. Backend (Django)
 
-###  Backend (Django)
-1. Clonar repositorio:
-   ```bash
-   git clone https://github.com/AsunaYero/brandtrack-crud.git
-   cd brandtrack-crud/backend
-
-2. Crear entorno virtual e instalar dependencias:
-
+```bash
+cd Backend
 python -m venv venv
-source venv/Scripts/activate   # En Windows: venv\Scripts\activate
+venv\Scripts\activate  # En Windows
+# source venv/bin/activate  # En Mac/Linux
 pip install -r requirements.txt
-
-
-3. Migrar base de datos:
-
 python manage.py migrate
-
-
-4. Ejecutar servidor:
-
 python manage.py runserver
+```
 
+El backend estará en http://localhost:8000
 
-### Frontend (Next.js)
+### 3. Frontend (Next.js)
 
-1. Ir a la carpeta frontend:
-
+```bash
 cd ../frontend
-
-
-2. Instalar dependencias:
-
 npm install
-
-
-3. Ejecutar el servidor de desarrollo:
-
 npm run dev
+```
 
+El frontend estará en http://localhost:3000
 
-4.Abrir en navegador:  http://localhost:3000
+---
 
-![alt text](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
-![alt text](image-3.png)
-Autora
+## Endpoints del CRUD
 
-Yeraldi Rico
-Estudiante de Ingeniería de Sistemas | Desarrolladora Fullstack
-🌐 GitHub
-https://github.com/AsunaYero
+- `GET /views/brands/` — Listar todas las marcas
+- `POST /views/brands/` — Crear una nueva marca
+- `GET /views/brands/{id}/` — Obtener detalle de una marca
+- `PUT /views/brands/{id}/` — Actualizar una marca existente
+- `DELETE /views/brands/{id}/` — Eliminar una marca
+
+---
+
+## Componentes principales (frontend)
+
+- **page.jsx**: Página principal, integra header, tabla y modal.
+- **components/header.jsx**: Header creativo y fijo.
+- **components/list.jsx**: Tabla de marcas con paginación, edición, eliminación y filtro.
+- **components/add.jsx**: Formulario para agregar marcas (modal).
+- **components/StatusBadge.jsx**: Muestra el estado de cada marca con color.
+
+## Backend principal
+
+- **models.py**: Modelo Brand (id, name, owner, status, created_at, updated_at)
+- **serializers.py**: Serializador BrandSerializer
+- **views.py**: BrandViewSet (CRUD)
+- **urls.py**: Rutas API REST
+
+---
+
+## Ejemplo de uso
+
+1. Abre la app en tu navegador (http://localhost:3000)
+2. Haz clic en "Agregar Marca" para abrir el modal y crear una nueva marca.
+3. Edita o elimina marcas desde la tabla.
+4. Filtra por estado usando el desplegable.
+5. Navega entre páginas si hay muchas marcas.
+
+---
+
+## Buenas prácticas y ventajas
+
+- Código limpio, modular y fácil de mantener.
+- Separación clara entre frontend y backend.
+- Documentación en cada archivo clave.
+- Listo para producción y fácil de desplegar.
+- UI amigable y profesional.
+
+---
+
+## Créditos y contacto
+
+Desarrollado por Yeraldi Rico Cifuentes.
