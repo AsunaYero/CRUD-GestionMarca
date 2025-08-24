@@ -1,14 +1,13 @@
 "use client";
-
+// Tabla de marcas con paginación, edición, eliminación y filtro por estado
 import { forwardRef, useEffect, useImperativeHandle, useState } from "react";
 import StatusBadge from "./StatusBadge";
 import { CiEdit, CiTrash, CiFloppyDisk, CiCircleRemove } from "react-icons/ci";
 
-
-
 const ITEMS_PER_PAGE = 3;
 
 const ListBrands = forwardRef((props, ref) => {
+  // Estado de la lista de marcas y controles
   const [brands, setBrands] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -17,6 +16,7 @@ const ListBrands = forwardRef((props, ref) => {
   const [page, setPage] = useState(1);
   const [filterStatus, setFilterStatus] = useState('all');
 
+  // Obtiene las marcas del backend
   const fetchBrands = () => {
     setLoading(true);
     setError(null);
@@ -30,30 +30,34 @@ const ListBrands = forwardRef((props, ref) => {
       .finally(() => setLoading(false));
   };
 
-
   useEffect(() => {
     fetchBrands();
   }, []);
 
+  // Permite recargar la lista desde el padre
   useImperativeHandle(ref, () => ({
     reload: fetchBrands,
   }));
 
+  // Elimina una marca
   const handleDelete = async (id) => {
     if (!window.confirm("¿Seguro que deseas eliminar esta marca?")) return;
     await fetch(`http://localhost:8000/views/brands/${id}/`, { method: "DELETE" });
     fetchBrands();
   };
 
+  // Activa modo edición
   const handleEdit = (brand) => {
     setEditId(brand.id);
     setEditData({ name: brand.name, owner: brand.owner, status: brand.status });
   };
 
+  // Cambia los campos en modo edición
   const handleEditChange = (e) => {
     setEditData({ ...editData, [e.target.name]: e.target.value });
   };
 
+  // Guarda los cambios de edición
   const handleEditSave = async (id) => {
     await fetch(`http://localhost:8000/views/brands/${id}/`, {
       method: "PUT",
@@ -64,14 +68,13 @@ const ListBrands = forwardRef((props, ref) => {
     fetchBrands();
   };
 
+  // Cancela la edición
   const handleEditCancel = () => {
     setEditId(null);
   };
 
-
   if (loading) return <div>Cargando marcas...</div>;
   if (error) return <div>Error: {error.message}</div>;
-
 
   // Filtrado por estado
   const filteredBrands = filterStatus === 'all'
@@ -85,6 +88,7 @@ const ListBrands = forwardRef((props, ref) => {
 
   return (
     <>
+      {/* Filtro por estado */}
       <div className="filter-container">
         <label htmlFor="filter-status" className="filter-label">Filtrar por estado:</label>
         <select id="filter-status" value={filterStatus} onChange={e => { setFilterStatus(e.target.value); setPage(1);}} className="input-filter">
@@ -94,6 +98,7 @@ const ListBrands = forwardRef((props, ref) => {
           <option value="pending">Pendiente</option>
         </select>
       </div>
+      {/* Tabla de marcas */}
       <table>
         <thead>
           <tr>
@@ -152,6 +157,7 @@ const ListBrands = forwardRef((props, ref) => {
           ))}
         </tbody>
       </table>
+      {/* Controles de paginación */}
       <div className="pagination-container">
         <button onClick={() => setPage((p) => Math.max(1, p - 1))} disabled={page === 1} className="btn-pag"> Anterior</button>
         <span className="pagination-info">Página {page} de {totalPages}</span>

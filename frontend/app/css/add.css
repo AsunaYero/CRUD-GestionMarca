@@ -1,0 +1,44 @@
+/* ---------- FORMULARIO AGREGAR MARCA ---------- */
+
+/* Formulario modal */
+.form-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Inputs del formulario */
+.input-edit {
+  padding: 6px 6px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.2s ease;
+  font-family: "Nunito", "Segoe UI", Roboto, Arial, sans-serif;
+  width: 100%;
+}
+.input-edit:focus {
+  border-color: #063946;
+  box-shadow: 0 0 0 1px #063946;
+}
+
+/* Botón de guardar dentro del formulario */
+.form-modal button.add-btn {
+  margin-top: 8px;
+  width: fit-content;
+  min-width: 50px;
+  align-self: flex-start;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 10px 10;
+  border-radius: 15px;
+  background: #063946;
+  color: #fff;
+  box-shadow: 0 2px 8px #063946;
+}
+.form-modal button.add-btn:hover {
+  background: #063946;
+}

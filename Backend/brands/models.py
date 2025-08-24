@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+# Modelo de base de datos para la entidad "Brand"
 
 class Brand(models.Model):
     STATUS_CHOICES = [

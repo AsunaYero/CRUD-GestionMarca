@@ -1,40 +1,4 @@
-/* Contenedor del filtro */
-.filter-container {
-  display: flex;
-  align-items: center;
-  margin-bottom: 13px;
-  gap: 12px; 
-}
-
-/* Label */
-.filter-label {
-  font-weight: 600;
-  font-size: 1rem;
-  color: #374151;
-}
-
-/* Inputs de edición dentro de la tabla */
-.input-filter {
-  padding: 6px 6px;
-  border: 1px solid #d1d5db;
-  border-radius: 10px;
-  font-size: 15px;
-  outline: none;
-  transition: all 0.2s ease;
-  font-family: "Nunito", "Segoe UI", Roboto, Arial, sans-serif;
-  width: 100%;
-  width: 180px;     
-  max-width: 200px;  
-  min-width: 140px;
-}
-
-.input-filter:focus {
-  border-color:  #063946; /* azul */
-  box-shadow: 0 0 0 1px  #063946;
-}
-
-
-
+/* Reset */
 body {
   margin: 0;
   font-family: "Nunito", "Segoe UI", Roboto, Arial, sans-serif;
@@ -125,8 +89,7 @@ tr:hover {
   background: #f4f5f6;
 }
 
-/*botones de acciones*/
-
+/* Botones de acciones */
 .btn-editar,
 .btn-eliminar {
   border: none;
@@ -136,6 +99,7 @@ tr:hover {
   margin: 0 4px;
   transition: transform 0.2s ease, color 0.2s ease;
 }
+
 .btn-editar {
   color:  #063946;
   font-size: 30px; 
@@ -204,7 +168,7 @@ tr:hover {
   color: #b91c1c;
 }
 
-/* Modal emergente agregar marca */
+/* Modal emergente (sin form) */
 .modal-bg {
   position: fixed;
   top: 0; left: 0; width: 100vw; height: 100vh;
@@ -215,6 +179,7 @@ tr:hover {
   z-index: 1000;
   animation: fadeIn 0.2s;
 }
+
 .modal-content {
   background: #fff;
   border-radius: 18px;
@@ -228,13 +193,15 @@ tr:hover {
   flex-direction: column;
   align-items: flex-start;
 }
+
 .modal-title {
   margin: 0 0 18px 0;
-  color: #063946;;
+  color: #063946;
   font-weight: 700;
   font-size: 1.25rem;
   letter-spacing: 0.5px;
 }
+
 .modal-close {
   position: absolute;
   top: 14px;
@@ -246,69 +213,9 @@ tr:hover {
   color: #dc2626;
   transition: color 0.2s;
 }
+
 .modal-close:hover {
   color: #b91c1c;
-}
-
-.form-modal {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  width: 100%;
-  margin-top: 10px;
-}
-
-.form-modal button.add-btn {
-  margin-top: 8px;
-  width: fit-content;
-  min-width: 50px;
-  align-self: flex-start;
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 10px 10;
-  border-radius: 15px;
-  background: #063946;
-  color: #fff;
-  box-shadow: 0 2px 8px #063946;;
-}
-
-.form-modal button.add-btn:hover {
-  background: #063946;;
-}
-
-/* Header principal */
-.creative-header {
-  display: flex;
-  padding: 0px 0px 0px 0px;   
-  background:#063946;
-  justify-content: flex-start;
-  position: sticky;
-  box-shadow: 0 1px 6px #0001;
-  min-height: 90px     
-}
-
-/* Grupo de títulos */
-.header-title-group {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;    
-}
-
-/* Título */
-.creative-title {
-  font-size: 1.9rem;   
-  font-weight: 700;
-  margin: 10px 0px 0px 180px;
-  color: #c7c7c9;
-  letter-spacing: 0.5px;
-}
-
-/* Subtítulo */
-.creative-sub {
-  font-size: 1rem;  
-  color: white;
-  margin: 0px 0px 0px 180px;
-  font-weight: 500;
 }
 
 /* Contenedor de la paginación */
@@ -340,9 +247,11 @@ tr:hover {
   box-shadow: 0px 5px 2px #0001;
   border: 1px solid #d1d5db;
 }
+
 .btn-pag:hover {
   background: #f4f5f6; 
 }
+
 .btn-pag:disabled {
   background: #e5e9ed; 
   color: #9ca3af;      
@@ -351,7 +260,48 @@ tr:hover {
   border: 1px solid #d1d5db;
 }
 
+/* Contenedor del filtro */
+.filter-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 13px;
+  gap: 12px; 
+}
 
+/* Label */
+.filter-label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #374151;
+}
 
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes popIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+/* Inputs de filtro */
+.input-filter {
+  padding: 6px 6px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.2s ease;
+  font-family: "Nunito", "Segoe UI", Roboto, Arial, sans-serif;
+  width: 100%;
+  width: 180px;     
+  max-width: 200px;  
+  min-width: 140px;
+}
+
+.input-filter:focus {
+  border-color:  #063946; /* azul */
+  box-shadow: 0 0 0 1px  #063946;
+}
+
+/* Animaciones */
+@keyframes fadeIn { 
+  from { opacity: 0; } 
+  to { opacity: 1; } 
+}
+
+@keyframes popIn { 
+  from { transform: scale(0.95); opacity: 0; } 
+  to { transform: scale(1); opacity: 1; } 
+}

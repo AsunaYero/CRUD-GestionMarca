@@ -1,13 +1,17 @@
 "use client";
+// Formulario para agregar una nueva marca (usado en el modal)
 import { useState } from "react";
+import "../css/add.css";
 
 function FormBrands({ onCreated, onClose }) {
+  // Estados para los campos del formulario
   const [name, setName] = useState("");
   const [owner, setOwner] = useState("");
   const [status, setStatus] = useState("active");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  // Maneja el envío del formulario y la creación de la marca
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -20,12 +24,12 @@ function FormBrands({ onCreated, onClose }) {
       });
       if (!res.ok) throw new Error("Error al crear la marca");
 
-      // limpiar
+      // Limpiar campos
       setName("");
       setOwner("");
       setStatus("active");
 
-      // actualizar lista y cerrar modal
+      // Actualizar lista y cerrar modal
       if (onCreated) onCreated();
       if (onClose) onClose();
     } catch (err) {
@@ -37,6 +41,7 @@ function FormBrands({ onCreated, onClose }) {
 
   return (
     <form onSubmit={handleSubmit} className="form-modal">
+      {/* Campo nombre de la marca */}
       <input
         type="text"
         placeholder="Marca"
@@ -45,6 +50,7 @@ function FormBrands({ onCreated, onClose }) {
         required
         className="input-edit"
       />
+      {/* Campo titular de la marca */}
       <input
         type="text"
         placeholder="Titular"
@@ -53,6 +59,7 @@ function FormBrands({ onCreated, onClose }) {
         required
         className="input-edit"
       />
+      {/* Selector de estado */}
       <select
         value={status}
         onChange={e => setStatus(e.target.value)}

@@ -1,4 +1,9 @@
 "use client";
+
+//traer estilos
+import "../css/header.css";
+
+// Header creativo superior de la app
 function CreativeHeader() {
   return (
     <header className="creative-header">
