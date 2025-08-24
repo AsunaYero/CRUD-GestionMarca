@@ -77,7 +77,10 @@ npm run dev
 
 4.Abrir en navegador:  http://localhost:3000
 
-
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
 Autora
 
 Yeraldi Rico
