@@ -56,7 +56,7 @@ CRUD-GestionMarca/
 
 ```bash
 git clone https://github.com/AsunaYero/CRUD-GestionMarca.git
-cd CRUD-GestionMarca
+cd PruebaBrand_crud
 ```
 
 ### 2. Backend (Django)
@@ -65,8 +65,6 @@ cd CRUD-GestionMarca
 cd Backend
 python -m venv venv
 venv\Scripts\activate  # En Windows
-# source venv/bin/activate  # En Mac/Linux
-pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
 ```
