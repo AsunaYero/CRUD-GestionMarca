@@ -125,7 +125,9 @@ npm install
 ```bash
 npm run dev
 ```
+
 El frontend estará disponible en: http://localhost:3000/
+
 ---
 
 ## Endpoints del CRUD
