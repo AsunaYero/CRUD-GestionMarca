@@ -52,35 +52,80 @@ CRUD-GestionMarca/
 
 ## Instalación y ejecución
 
-### 1. Clonar el repositorio
+### 1. Requisitos previos
+
+Antes de comenzar, es necesario instalar algunas herramientas:
+
+Instalar Python (para el backend) en este caso la version usada fue: Python 3.11.5
+
+Descarga desde  https://www.python.org/downloads/
+
+Instalar Node.js (para el frontend) versión usada: v22.18.0
+
+Descarga desde  https://nodejs.org/en/download/
+
+Se puede hacer uso Visual Studio Code para abrir el proyecto.
+
+### 2. Descargar el proyecto desde GitHub
+
+Escribir el siguiente comonda para descargar el proyecto. 
 
 ```bash
 git clone https://github.com/AsunaYero/CRUD-GestionMarca.git
-cd PruebaBrand_crud
 ```
 
-### 2. Backend (Django)
+### 3. Usar visual studio code 
+Usar visual studio code para abrir la carpeta del proyecto
 
+### 4. Configuración del Backend (Django)
+
+1. Abre una terminal dentro de la carpeta del backend:
 ```bash
-cd Backend
+cd PruebaBrand_crud/backend
+```
+2. Crea un entorno virtual (para instalar las librerías):
+```bash
 python -m venv venv
-venv\Scripts\activate  # En Windows
+```
+
+3. Activa el entorno virtual:
+```bash
+venv\Scripts\activate
+```
+
+4. Instala las librerías necesarias que estan el archivo requirements.txt
+```bash
+pip install -r requirements.txt
+```
+
+5. Ejecuta las migraciones de la base de datos:
+```bash
 python manage.py migrate
+```
+
+6. Inicia el servidor:
+```bash
 python manage.py runserver
 ```
+El backend estará disponible en: http://127.0.0.1:8000/
 
-El backend estará en http://localhost:8000
+### 5. Configuración del Frontend (Next.js / React)
 
-### 3. Frontend (Next.js)
-
+1. Abre otra terminal y entra en la carpeta del frontend:
 ```bash
-cd ../frontend
-npm install
-npm run dev
+cd PruebaBrand_crud/frontend
 ```
 
-El frontend estará en http://localhost:3000
+2. Instala las librerías necesarias:
+```bash
+npm install
+```
 
+3. Inicia el servidor de desarrollo:
+```bash
+npm run dev
+```
+El frontend estará disponible en: http://localhost:3000/
 ---
 
 ## Endpoints del CRUD
